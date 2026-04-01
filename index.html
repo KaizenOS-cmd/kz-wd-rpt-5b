@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Workday Compensation Grades & Plans SOP — Kaizen OS</title>
+<title>Workday Custom Reports & Calculated Fields SOP — Kaizen OS</title>
 <style>
   :root {
     --bg:#0e0e0e;--surface:#161616;--surface2:#1e1e1e;--border:#2a2a2a;
@@ -83,6 +83,7 @@
   .subsection{margin:28px 0}
   .subsection-title{font-size:14px;font-weight:700;color:var(--accent-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
   .divider{border:none;border-top:1px solid var(--border);margin:40px 0}
+  .code-block{background:#0a0a0a;border:1px solid var(--border);border-radius:6px;padding:16px 20px;font-family:var(--mono);font-size:13px;color:#a5d6a7;overflow-x:auto;margin:16px 0;line-height:1.6}
   .notes-area{background:var(--surface);border:1px dashed var(--border);border-radius:8px;padding:24px}
   .nf-label{font-size:11px;color:var(--text-dim);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
   .nfield{background:transparent;border:none;border-bottom:1px solid var(--border);width:100%;color:var(--text);font-family:var(--font);font-size:14px;padding:8px 0;margin-bottom:16px;outline:none}
@@ -91,16 +92,6 @@
   .ntarea{background:var(--surface2);border:1px solid var(--border);border-radius:6px;width:100%;color:var(--text);font-family:var(--font);font-size:14px;padding:12px 16px;outline:none;resize:vertical;min-height:120px}
   .ntarea:focus{border-color:var(--accent)}
   .nrow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-  /* Comp band visual */
-  .band-visual{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px;margin:20px 0}
-  .band-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px}
-  .band-track{position:relative;height:36px;background:var(--surface2);border-radius:6px;margin-bottom:8px}
-  .band-fill{position:absolute;top:0;left:0;height:100%;border-radius:6px;background:linear-gradient(90deg,rgba(200,240,74,.15),rgba(200,240,74,.4));display:flex;align-items:center;justify-content:space-between;padding:0 12px}
-  .band-min,.band-max{font-size:12px;font-weight:700;color:var(--accent)}
-  .band-mid-line{position:absolute;top:0;left:50%;height:100%;width:2px;background:var(--accent);opacity:.5}
-  .band-mid-label{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:700}
-  .band-worker{position:absolute;top:50%;left:62%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
-  .band-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim)}
   .footer{border-top:1px solid var(--border);padding-top:32px;margin-top:64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
   .footer-brand{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:2px}
   .footer-note{font-size:12px;color:var(--text-dim)}
@@ -114,16 +105,16 @@
 
   <div class="cover">
     <div class="tags">
-      <div class="series-tag"><span class="series-label">Workday SOP Series · Vol. 04</span></div>
+      <div class="series-tag"><span class="series-label">Workday SOP Series · Vol. 05</span></div>
       <div class="brand-tag"><div class="brand-dot"></div><span class="brand-name">Kaizen OS</span></div>
     </div>
-    <div class="cover-title">Compensation Grades<br><span>&amp; Plans</span></div>
-    <p class="cover-sub">A practitioner SOP for designing and configuring Workday Compensation — covering grade structures, salary ranges, compensation plans, eligibility rules, and annual review cycle setup. The highest-stakes configuration area in Workday.</p>
+    <div class="cover-title">Custom Reports &amp;<br><span>Calculated Fields</span></div>
+    <p class="cover-sub">A practitioner SOP for building, governing, and optimising Workday custom reports — covering report types, data sources, calculated fields, filters, security, scheduling, and report lifecycle management.</p>
     <div class="meta-grid">
       <div class="meta-item"><div class="meta-label">Document Type</div><div class="meta-value">SOP Template</div></div>
-      <div class="meta-item"><div class="meta-label">Series Volume</div><div class="meta-value">04 of 06</div></div>
+      <div class="meta-item"><div class="meta-label">Series Volume</div><div class="meta-value">05 of 06</div></div>
       <div class="meta-item"><div class="meta-label">Audience</div><div class="meta-value">Workday Admins / Consultants</div></div>
-      <div class="meta-item"><div class="meta-label">Scope</div><div class="meta-value">Compensation Configuration</div></div>
+      <div class="meta-item"><div class="meta-label">Scope</div><div class="meta-value">Reporting &amp; Analytics</div></div>
       <div class="meta-item"><div class="meta-label">Version</div><div class="meta-value">1.0</div></div>
       <div class="meta-item"><div class="meta-label">Status</div><div class="meta-value">Active</div></div>
     </div>
@@ -133,14 +124,14 @@
     <div class="toc-title">Table of Contents</div>
     <ul class="toc-list">
       <li><span class="toc-num">01</span><a href="#s1">How to Use This SOP</a></li>
-      <li><span class="toc-num">02</span><a href="#s2">Compensation Architecture Primer</a></li>
-      <li><span class="toc-num">03</span><a href="#s3">Pre-Configuration Checklist</a></li>
-      <li><span class="toc-num">04</span><a href="#s4">Compensation Grade &amp; Grade Profile Setup</a></li>
-      <li><span class="toc-num">05</span><a href="#s5">Compensation Plan Configuration</a></li>
-      <li><span class="toc-num">06</span><a href="#s6">Eligibility Rules</a></li>
-      <li><span class="toc-num">07</span><a href="#s7">Annual Review Cycle (Compensation Review)</a></li>
-      <li><span class="toc-num">08</span><a href="#s8">Validation &amp; Testing</a></li>
-      <li><span class="toc-num">09</span><a href="#s9">Rollback &amp; Risk Notes</a></li>
+      <li><span class="toc-num">02</span><a href="#s2">Reporting Architecture Primer</a></li>
+      <li><span class="toc-num">03</span><a href="#s3">Pre-Build Checklist</a></li>
+      <li><span class="toc-num">04</span><a href="#s4">Custom Report Build — Step-by-Step</a></li>
+      <li><span class="toc-num">05</span><a href="#s5">Calculated Fields</a></li>
+      <li><span class="toc-num">06</span><a href="#s6">Report Security &amp; Sharing</a></li>
+      <li><span class="toc-num">07</span><a href="#s7">Scheduling &amp; Integration Enablement</a></li>
+      <li><span class="toc-num">08</span><a href="#s8">Report Governance &amp; Lifecycle</a></li>
+      <li><span class="toc-num">09</span><a href="#s9">Validation &amp; Testing</a></li>
       <li><span class="toc-num">10</span><a href="#s10">Operator Notes</a></li>
       <li><span class="toc-num">11</span><a href="#s11">Change Log</a></li>
     </ul>
@@ -148,266 +139,269 @@
 
   <!-- S1 -->
   <div class="section" id="s1">
-    <div class="section-header"><div class="section-num">01</div><div><div class="section-title">How to Use This SOP</div><div class="section-desc">Read before touching any compensation configuration</div></div></div>
-    <p>Compensation configuration is the highest-stakes area in Workday. Errors here directly impact payroll, employee pay, and regulatory compliance. A misconfigured salary grade, plan, or eligibility rule can result in incorrect pay for hundreds of workers, audit failures, or discriminatory pay outcomes.</p>
-    <div class="callout crit"><div class="callout-label">🔴 Critical</div><div class="callout-body">Compensation configuration changes that affect <strong>existing workers</strong> may trigger mass retro-pay calculations or compensation change events. Always confirm with your Payroll lead whether a config change has retrospective impact before saving in production. When in doubt — test in sandbox first, every time.</div></div>
-    <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Duplicate this SOP per compensation structure or review cycle. File naming convention: <em>SOP_Comp_Grades_[Region]_v1.0_2026.html</em> or <em>SOP_Comp_AnnualReview_[Year].html</em>. Keep one file per configuration object — grades, plans, and review cycles each warrant their own record.</div></div>
+    <div class="section-header"><div class="section-num">01</div><div><div class="section-title">How to Use This SOP</div><div class="section-desc">Read before building any custom report</div></div></div>
+    <p>Custom reports are one of the most proliferated — and least governed — configuration objects in Workday. Most tenants accumulate hundreds of reports over time, many duplicated, outdated, or accessible to the wrong people. This SOP enforces a build-with-intent approach: every report has a named owner, a defined audience, a security review, and a lifecycle plan from day one.</p>
+    <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Custom reports in Workday respect the security of the <strong>user running the report</strong> — not the report owner. A report built by an HRIS Admin and shared with managers will only show each manager the workers they can see based on their own security group. However, reports shared too broadly can still expose more data than intended. Security review every report before sharing.</div></div>
+    <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Create one copy of this SOP per report. Naming convention: <em>SOP_RPT_[ReportName]_v1.0_2026.html</em>. For integration-enabled reports, cross-reference the corresponding Vol. 01 (EIB/Studio) SOP.</div></div>
   </div>
 
   <!-- S2 -->
   <div class="section" id="s2">
-    <div class="section-header"><div class="section-num">02</div><div><div class="section-title">Compensation Architecture Primer</div><div class="section-desc">The full model before you configure anything</div></div></div>
+    <div class="section-header"><div class="section-num">02</div><div><div class="section-title">Reporting Architecture Primer</div><div class="section-desc">Report types, data sources, and framework concepts</div></div></div>
+
+    <div class="subsection"><div class="subsection-title">Report Type Reference</div></div>
+    <table class="data-table">
+      <thead><tr><th>Report Type</th><th>Best For</th><th>Complexity</th><th>Integration-Eligible</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Simple</strong></td><td>Quick lookups, single data source, no grouping</td><td><span class="badge low">Low</span></td><td>No</td></tr>
+        <tr><td><strong>Advanced</strong></td><td>Multi-level grouping, calculated fields, filters, charts</td><td><span class="badge med">Medium</span></td><td>Yes</td></tr>
+        <tr><td><strong>Matrix</strong></td><td>Cross-tab / pivot style output (rows × columns)</td><td><span class="badge med">Medium</span></td><td>Limited</td></tr>
+        <tr><td><strong>Composite</strong></td><td>Combining multiple sub-reports into one output</td><td><span class="badge high">High</span></td><td>Limited</td></tr>
+        <tr><td><strong>Trending</strong></td><td>Point-in-time historical snapshots over time</td><td><span class="badge high">High</span></td><td>No</td></tr>
+        <tr><td><strong>nBox</strong></td><td>Performance-potential grid (9-box)</td><td><span class="badge med">Medium</span></td><td>No</td></tr>
+        <tr><td><strong>Workday Delivered</strong></td><td>Pre-built standard reports — copy before editing</td><td>—</td><td>Varies</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout rat"><div class="callout-label">💡 Rationale</div><div class="callout-body">Always start with <strong>Advanced</strong> report type — even if your current requirements are simple. Advanced reports support calculated fields, complex filters, and integration eligibility. Starting with Simple and needing to rebuild as Advanced later is a common and avoidable rework cycle.</div></div>
 
     <div class="grid2">
-      <div class="card"><div class="card-title">Compensation Grade</div><p style="font-size:13px;color:var(--text-muted);margin:0">Defines the salary band — minimum, midpoint, maximum. Typically maps to a job level or career band. Grades are currency and frequency-specific. One grade per level per market.</p></div>
-      <div class="card"><div class="card-title">Grade Profile</div><p style="font-size:13px;color:var(--text-muted);margin:0">A sub-band within a grade — used where a single grade spans multiple geographies or specialisations with different pay ranges. Allows range differentiation without creating separate grades.</p></div>
-      <div class="card"><div class="card-title">Compensation Plan</div><p style="font-size:13px;color:var(--text-muted);margin:0">The pay component — Salary, Bonus, Stock, Allowance, Car, etc. Each component is a separate plan. Workers are assigned plans based on eligibility rules. Plans drive what appears on the worker's compensation tab.</p></div>
-      <div class="card"><div class="card-title">Compensation Package</div><p style="font-size:13px;color:var(--text-muted);margin:0">A bundle of plans applied together — simplifies worker assignment. Instead of assigning 5 plans individually, assign one package. Packages drive consistency and reduce config errors.</p></div>
-      <div class="card"><div class="card-title">Eligibility Rules</div><p style="font-size:13px;color:var(--text-muted);margin:0">Conditions that determine which workers qualify for a plan or grade. Built using worker attributes (employee type, location, job family, management level). The mechanism for targeted comp design.</p></div>
-      <div class="card"><div class="card-title">Compensation Review</div><p style="font-size:13px;color:var(--text-muted);margin:0">The annual / merit cycle. A time-boxed process where managers propose changes within defined guidelines (merit %, budget pools). Requires its own cycle setup, eligibility, and guideline configuration.</p></div>
+      <div class="card"><div class="card-title">Primary Business Objects</div><p style="font-size:13px;color:var(--text-muted);margin:0">The top-level data source for a report. All Workers, All Active Workers, All Positions, Compensation Proposals, Job Applications. Your BO selection determines which related fields are accessible.</p></div>
+      <div class="card"><div class="card-title">Related Business Objects</div><p style="font-size:13px;color:var(--text-muted);margin:0">Sub-objects accessible via the primary BO. E.g., from <em>All Workers</em> you can traverse to Manager, Compensation, Position, Location. Each traversal adds a join — deep traversals can impact performance.</p></div>
+      <div class="card"><div class="card-title">Calculated Fields</div><p style="font-size:13px;color:var(--text-muted);margin:0">Custom fields computed at runtime — date differences, text concatenations, conditional logic, number formatting, lookups. The primary tool for business-specific metrics not available in standard fields.</p></div>
+      <div class="card"><div class="card-title">Filters vs. Prompts</div><p style="font-size:13px;color:var(--text-muted);margin:0"><strong>Filters</strong> are hardcoded — the report always applies them. <strong>Prompts</strong> ask the user to input values at runtime. Use prompts for date-range reports and org-scoped reports used by multiple stakeholders.</p></div>
     </div>
-
-    <div class="subsection"><div class="subsection-title">Compensation Grade Band — Visual Reference</div></div>
-    <div class="band-visual">
-      <div class="band-label">Example: Grade 5 — Senior Manager — USD Annual</div>
-      <div class="band-track">
-        <div class="band-fill" style="width:100%">
-          <span class="band-min">$95,000</span>
-          <span class="band-max">$165,000</span>
-        </div>
-        <div class="band-mid-label">Midpoint</div>
-        <div class="band-mid-line"></div>
-        <div class="band-worker" title="Worker's current salary position"></div>
-      </div>
-      <div class="band-meta"><span>Min (57.6% of Mid)</span><span>Mid: $130,000</span><span>Max (126.9% of Mid)</span></div>
-    </div>
-    <p style="font-size:13px;color:var(--text-dim);margin-top:-8px;">● Dot = example worker position at 62% of range (Compa-ratio: 1.02)</p>
-
-    <div class="callout rat"><div class="callout-label">💡 Rationale</div><div class="callout-body">Workday stores salary ranges at the grade level — not on the worker record directly. When you update a grade's range, all workers assigned to that grade immediately reflect the new range for compa-ratio and range penetration calculations. This is why grade updates require careful coordination with Compensation and Finance teams before saving.</div></div>
   </div>
 
   <!-- S3 -->
   <div class="section" id="s3">
-    <div class="section-header"><div class="section-num">03</div><div><div class="section-title">Pre-Configuration Checklist</div><div class="section-desc">Complete before any compensation configuration</div></div></div>
-    <div class="subsection"><div class="subsection-title">Design &amp; Data Readiness</div></div>
+    <div class="section-header"><div class="section-num">03</div><div><div class="section-title">Pre-Build Checklist</div><div class="section-desc">Complete before creating any new custom report</div></div></div>
     <ul class="checklist">
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Compensation philosophy and grade structure approved by Total Rewards / C&B lead<small>[ORG-SPECIFIC] Number of grades, band widths, spread percentages, midpoint progression confirmed</small></span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Currency and frequency confirmed for each grade (Annual / Monthly / Hourly)<small>Multi-currency orgs need one grade set per currency — do not attempt to mix currencies within a single grade</small></span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Pay ranges sourced and approved — min, mid, max per grade per market<small>Typically sourced from salary survey data (Mercer, Willis Towers Watson, Radford)</small></span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Compensation plan inventory defined — all pay components documented (base, bonus, LTI, allowances)</span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Eligibility rules designed — which worker populations qualify for each plan</span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Compensation packages designed if applicable — which plans bundle together per role family</span></li>
-    </ul>
-    <div class="subsection"><div class="subsection-title">Stakeholder Sign-offs</div></div>
-    <ul class="checklist">
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Total Rewards / C&B team sign-off on grade structure and pay ranges</span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Finance / Payroll sign-off on frequency, currency, and pay components</span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Legal / Pay Equity review — confirm grade structure does not create discriminatory pay exposure<small>Required in jurisdictions with pay transparency or equal pay legislation (UK, EU, several US states)</small></span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Works Council notification for any changes to pay structure that affect collective agreements<small>[ORG-SPECIFIC] — DACH, France, Netherlands, Nordics typically require notification</small></span></li>
-      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">HRIS lead / Workday Compensation Admin sign-off on technical design</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Check if a delivered Workday report meets the need — avoid rebuilding what already exists<small>Search Workday Community for delivered reports before building custom. Copy and modify delivered reports rather than building from scratch where possible.</small></span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Check the tenant for existing custom reports that overlap with the request<small>Run a report inventory search before creating a duplicate</small></span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Report requirements documented: business question, required fields, filters, output format, audience</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Named report owner identified — responsible for accuracy and lifecycle decisions</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Data sensitivity assessed — does the report include PII, compensation, health, or banking data?<small>If yes, security review required before sharing with any audience beyond HRIS Admin</small></span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Integration eligibility requirement confirmed — will this report feed an EIB or Studio integration?<small>If yes, use Advanced report type and ensure Integration-Eligible flag is set</small></span></li>
     </ul>
   </div>
 
   <!-- S4 -->
   <div class="section" id="s4">
-    <div class="section-header"><div class="section-num">04</div><div><div class="section-title">Compensation Grade &amp; Grade Profile Setup</div><div class="section-desc">Configuring salary bands in Workday</div></div></div>
+    <div class="section-header"><div class="section-num">04</div><div><div class="section-title">Custom Report Build — Step-by-Step</div><div class="section-desc">Building a custom Advanced report from scratch</div></div></div>
 
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div class="step-content">
-        <div class="step-title">Create the Compensation Grade</div>
-        <div class="step-body">Search <strong>Create Compensation Grade</strong>. Enter the grade name per your naming convention (e.g., <em>G05-Senior-Manager-USD</em>). Set the currency and frequency. Add a description documenting the intended job level scope. Save — the grade exists but has no range data yet.</div>
-        <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Include currency code in the grade name. In multi-currency environments, you will have parallel grade structures (G05-USD, G05-GBP, G05-EUR). Clear naming prevents accidental assignment of a wrong-currency grade to a worker — a common and painful error to remediate.</div></div>
+        <div class="step-title">Create the Report</div>
+        <div class="step-body">Search <strong>Create Custom Report</strong>. Enter the report name per convention (e.g., <em>RPT_Headcount_ByOrg_Active</em>). Select report type: <strong>Advanced</strong>. Select the <strong>Primary Business Object</strong> — this is the most important decision in report building. All field traversals stem from this choice.</div>
+        <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Use <em>All Active Workers</em> for headcount and people analytics reports rather than <em>All Workers</em> — it pre-filters to active employees and significantly reduces query scope and runtime. Use <em>All Workers</em> only when terminated workers are intentionally in scope.</div></div>
       </div></div>
 
       <div class="step"><div class="step-num">2</div><div class="step-content">
-        <div class="step-title">Add Grade Steps / Pay Range</div>
-        <div class="step-body">Within the grade, navigate to <strong>Compensation Grade Profiles</strong> or the <strong>Pay Range</strong> section. Enter Minimum, Midpoint, and Maximum values. Workday calculates the spread automatically. Verify: <strong>Spread %</strong> = (Max − Min) / Min × 100. Confirm this matches your C&amp;B design document before saving.</div>
-        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Saving a grade range update immediately recalculates compa-ratios and range penetration for all workers assigned to that grade. This can trigger alerts to managers and HR Partners. Coordinate with your HR Ops team before updating ranges on grades with existing worker assignments.</div></div>
+        <div class="step-title">Add Columns (Fields)</div>
+        <div class="step-body">Navigate to the <strong>Columns</strong> tab. Add fields by traversing the business object hierarchy. Click <strong>Add Field</strong> and use the field browser to navigate from the primary BO to related BOs. Add: Worker ID, Full Name, Position, Supervisory Org, Manager, Location, Employee Type, Hire Date — then the report-specific fields from your requirements doc.</div>
+        <div class="callout note"><div class="callout-label">📋 Note</div><div class="callout-body">Column order determines the output column order. Arrange fields logically — identifier fields first (Worker ID, Name), then classifiers (Org, Location, Type), then the specific data fields. This makes downstream data processing significantly easier for report consumers.</div></div>
       </div></div>
 
       <div class="step"><div class="step-num">3</div><div class="step-content">
-        <div class="step-title">Create Grade Profiles (if applicable)</div>
-        <div class="step-body">If your design requires sub-ranges within a grade (e.g., same grade level but different pay ranges for London vs. regional UK), create <strong>Compensation Grade Profiles</strong>. Navigate to <strong>Create Compensation Grade Profile</strong>. Link the profile to the parent grade. Set the profile-level min/mid/max. Profiles override the parent grade range for workers assigned to the profile.</div>
-        <div class="callout rat"><div class="callout-label">💡 Rationale</div><div class="callout-body">Grade Profiles allow geographic or specialisation-based pay differentiation without proliferating top-level grades. Fewer grades = simpler maintenance. Use profiles aggressively in global orgs with cost-of-living or market differentials within a single job level.</div></div>
+        <div class="step-title">Configure Filters</div>
+        <div class="step-body">Navigate to the <strong>Filters</strong> tab. Add filter conditions to restrict the data set. Common filters: Active status, specific orgs, country, hire date range, employee type. For each filter, set the operator (equals, in list, greater than, is not empty) and the value. Chain multiple filters with AND logic (default) or OR where business logic requires.</div>
+        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Filters do NOT override security — they narrow the data set further. A user who cannot see a worker due to their security group will never see that worker in a report, regardless of filter configuration. However, missing a filter (e.g., forgetting to filter to Active workers) can produce unexpectedly large data sets that increase runtime and confuse consumers.</div></div>
       </div></div>
 
       <div class="step"><div class="step-num">4</div><div class="step-content">
-        <div class="step-title">Assign Grades to Job Profiles</div>
-        <div class="step-body">Navigate to the relevant <strong>Job Profile</strong> and add the compensation grade in the Compensation section. This links the grade to the job profile — when a worker is hired or transferred into a position using this job profile, the grade is defaulted. Confirm the correct grade is mapped before completing any job profile updates.</div>
-        <div class="callout note"><div class="callout-label">📋 Note</div><div class="callout-body">Grade assignment on Job Profiles is a default — HR Partners can override at the individual worker level during a Hire or Change Job transaction. Governance controls (condition rules on the Hire/Change Job BP) should restrict how far from the default grade a worker can be placed.</div></div>
+        <div class="step-title">Add Prompts (Optional)</div>
+        <div class="step-body">Navigate to the <strong>Prompts</strong> tab. Add runtime prompts for fields that should be user-selectable: Effective Date, Organisation, Country, Date Range. Mark prompts as required or optional. For date-range reports used in integrations, prompts are typically removed — filters are hardcoded to relative date logic (e.g., last 24 hours).</div>
+      </div></div>
+
+      <div class="step"><div class="step-num">5</div><div class="step-content">
+        <div class="step-title">Configure Output &amp; Grouping</div>
+        <div class="step-body">Set the <strong>Sort</strong> order (typically Supervisory Org → Worker Name). Add <strong>Group By</strong> if subtotals or grouping headers are required. Navigate to <strong>Output</strong> and confirm the default output format. For integration reports, set output to XML or CSV as required by the receiving system. Enable <strong>Integration-Eligible</strong> flag if this report will feed EIBs.</div>
+      </div></div>
+
+      <div class="step"><div class="step-num">6</div><div class="step-content">
+        <div class="step-title">Save &amp; Run Initial Test</div>
+        <div class="step-body">Save the report. Click <strong>Run</strong>. Review the output: confirm row count is as expected, all columns are populated, filters are working, and no unexpected data is visible. Compare against a known data set (e.g., org chart headcount) to validate accuracy. Document expected output in Operator Notes.</div>
       </div></div>
     </div>
   </div>
 
   <!-- S5 -->
   <div class="section" id="s5">
-    <div class="section-header"><div class="section-num">05</div><div><div class="section-title">Compensation Plan Configuration</div><div class="section-desc">Setting up salary, bonus, allowance, and LTI plans</div></div></div>
+    <div class="section-header"><div class="section-num">05</div><div><div class="section-title">Calculated Fields</div><div class="section-desc">Building custom metrics and business logic in Workday reports</div></div></div>
+    <p>Calculated fields extend Workday's standard data with custom computations — tenure in years, compa-ratio percentages, conditional flags, concatenated identifiers, and more. They are one of the most powerful and most under-used tools in Workday reporting.</p>
 
-    <div class="subsection"><div class="subsection-title">Plan Types Reference</div></div>
+    <div class="subsection"><div class="subsection-title">Calculated Field Function Reference</div></div>
     <table class="data-table">
-      <thead><tr><th>Plan Type</th><th>Use For</th><th>Key Config Fields</th><th>Frequency</th></tr></thead>
+      <thead><tr><th>Function Category</th><th>Key Functions</th><th>Common Use Cases</th></tr></thead>
       <tbody>
-        <tr><td><strong>Salary Plan</strong></td><td>Base salary / hourly rate</td><td>Currency, frequency, grade, eligibility rule</td><td>Annual / Monthly / Hourly</td></tr>
-        <tr><td><strong>Bonus Plan</strong></td><td>Cash bonus / incentive pay</td><td>Target %, calculation type, eligibility, proration rules</td><td>Annual / Quarterly</td></tr>
-        <tr><td><strong>Merit Plan</strong></td><td>Annual merit increase</td><td>Budget %, guideline matrix, eligibility, review cycle link</td><td>Annual (review cycle)</td></tr>
-        <tr><td><strong>Stock Plan</strong></td><td>Equity / LTI</td><td>Grant type, vesting schedule, eligibility</td><td>Annual / Ad hoc</td></tr>
-        <tr><td><strong>Allowance Plan</strong></td><td>Fixed recurring allowances (car, phone, housing)</td><td>Fixed amount or %, frequency, currency</td><td>Monthly / Annual</td></tr>
-        <tr><td><strong>Unit Plan</strong></td><td>Commission / variable units</td><td>Unit rate, currency, eligibility</td><td>Monthly / Per-event</td></tr>
+        <tr><td><strong>Date &amp; Time</strong></td><td>Date Difference, Date Add, Date Extract, Today</td><td>Tenure (years/months), days since last promotion, days to contract end</td></tr>
+        <tr><td><strong>Text / String</strong></td><td>Concatenate, Upper/Lower, Substring, Text Lookup</td><td>Full name formatting, composite IDs, country code mapping</td></tr>
+        <tr><td><strong>Numeric</strong></td><td>Add, Subtract, Multiply, Divide, Round, Absolute Value</td><td>Compa-ratio, range penetration, budget variance, headcount delta</td></tr>
+        <tr><td><strong>Conditional</strong></td><td>If/Then/Else, Is Null, Is Empty, Switch</td><td>Red/Amber/Green flags, absence tier classification, risk scoring</td></tr>
+        <tr><td><strong>Lookup</strong></td><td>Lookup, Related Value</td><td>Mapping internal codes to external labels, currency conversion flags</td></tr>
+        <tr><td><strong>Aggregation</strong></td><td>Count, Sum, Average, Maximum, Minimum</td><td>Team headcount, average salary by org, max tenure in department</td></tr>
       </tbody>
     </table>
 
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div class="step-content">
-        <div class="step-title">Create the Compensation Plan</div>
-        <div class="step-body">Search <strong>Create Compensation Plan</strong>. Select the plan type. Name per convention (e.g., <em>SAL-Annual-USD</em>, <em>BONUS-Annual-Executive</em>). Set the currency, frequency, and compensation category. Link to the relevant compensation grade if applicable (salary plans).</div>
+        <div class="step-title">Create a Calculated Field</div>
+        <div class="step-body">Within the report, navigate to <strong>Calculated Fields</strong> tab → <strong>Add</strong>. Name the field descriptively (e.g., <em>CF_Tenure_Years</em>). Select the function category and function. Configure the inputs — typically field references from the report's BO or static values.</div>
+        <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Prefix all calculated field names with <em>CF_</em>. This makes them instantly identifiable in the field list and distinguishes them from standard Workday fields when reviewing or troubleshooting a report.</div></div>
       </div></div>
 
       <div class="step"><div class="step-num">2</div><div class="step-content">
-        <div class="step-title">Configure Plan Rules &amp; Defaults</div>
-        <div class="step-body">Set the <strong>default amount or percentage</strong> if applicable. Configure <strong>rounding rules</strong> (nearest $100, nearest $1,000 — align with your C&amp;B policy). Set <strong>proration rules</strong> for mid-year hires or terminations. For bonus plans, set the <strong>target %</strong> per eligibility segment.</div>
-        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Proration rules on bonus and merit plans must be validated with Payroll. Incorrect proration logic on an annual bonus plan can result in incorrect payout calculations for all mid-year joiners — a high-volume, high-sensitivity error category.</div></div>
+        <div class="step-title">Build Common Calculated Fields</div>
+        <div class="step-body">The following are the most frequently needed calculated fields in Workday reporting:</div>
+        <div class="code-block">
+          <strong style="color:var(--accent)">CF_Tenure_Years</strong><br>
+          Function: Date Difference (Years)<br>
+          Input 1: Hire Date (Worker)<br>
+          Input 2: Today's Date<br><br>
+          <strong style="color:var(--accent)">CF_CompaRatio</strong><br>
+          Function: Divide<br>
+          Input 1: Annual Base Salary<br>
+          Input 2: Grade Midpoint → Round to 2 decimal places<br><br>
+          <strong style="color:var(--accent)">CF_RangePenetration</strong><br>
+          Function: Divide → Subtract → Divide<br>
+          Formula: (Salary - Min) / (Max - Min) × 100<br><br>
+          <strong style="color:var(--accent)">CF_ActiveFlag</strong><br>
+          Function: If/Then/Else<br>
+          If: Employment Status = Active → "Active" Else → "Inactive"<br><br>
+          <strong style="color:var(--accent)">CF_FullName_LastFirst</strong><br>
+          Function: Concatenate<br>
+          Value: Last Name + ", " + First Name
+        </div>
       </div></div>
 
       <div class="step"><div class="step-num">3</div><div class="step-content">
-        <div class="step-title">Create Compensation Package (if applicable)</div>
-        <div class="step-body">Search <strong>Create Compensation Package</strong>. Name the package per role family or level (e.g., <em>PKG-Executive-USD</em>). Add the relevant plans: Salary + Bonus + LTI + Car Allowance. Set the default grade. The package becomes the single assignment object used on Hire and Change Job transactions — simplifying HR Partner experience and reducing plan assignment errors.</div>
+        <div class="step-title">Test Calculated Field Output</div>
+        <div class="step-body">Run the report with the calculated field added. Spot-check at least 10 records manually — verify the computed value against the source fields. For numeric fields, cross-reference against a known calculation in Excel. For date fields, validate against worker hire dates visible in the worker record. Document expected values in Operator Notes.</div>
+        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Calculated fields return null silently when an input field is empty. A tenure calculation on a worker with no hire date will return blank — not an error. Always test with workers who have missing data to understand null handling before the report goes to stakeholders.</div></div>
       </div></div>
     </div>
   </div>
 
   <!-- S6 -->
   <div class="section" id="s6">
-    <div class="section-header"><div class="section-num">06</div><div><div class="section-title">Eligibility Rules</div><div class="section-desc">Controlling which workers qualify for which plans and grades</div></div></div>
-    <p>Eligibility rules are the gatekeeping mechanism for compensation plans. They ensure the right workers are on the right plans — and that plans don't accidentally apply to ineligible populations (e.g., a contractor on an executive bonus plan).</p>
+    <div class="section-header"><div class="section-num">06</div><div><div class="section-title">Report Security &amp; Sharing</div><div class="section-desc">Controlling who can see and run each report</div></div></div>
 
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div class="step-content">
-        <div class="step-title">Create the Eligibility Rule</div>
-        <div class="step-body">Search <strong>Create Eligibility Rule</strong>. Name descriptively (e.g., <em>Elig: Full-Time Employees — EMEA — Exempt</em>). Select the criteria type: <strong>Include</strong> (who qualifies) or <strong>Exclude</strong> (who does not). Build the condition using worker attributes: Employee Type, Location, Job Family, Management Level, Hire Date, etc.</div>
-        <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Build eligibility rules using Exclude logic where possible — it is more durable. Excluding "Contingent Workers" from a bonus plan is more stable than including specific employee types, because new employee types added in future will be automatically excluded unless explicitly included.</div></div>
+        <div class="step-title">Set Report Sharing</div>
+        <div class="step-body">Navigate to the report → <strong>Share</strong>. Add the security groups or users who should have access to run the report. Options: <strong>Run</strong> (execute only), <strong>View</strong> (see definition), <strong>Modify</strong> (edit the report). For most stakeholder reports, grant Run access only — restrict Modify to HRIS Admin and the report owner.</div>
+        <div class="callout crit"><div class="callout-label">🔴 Critical</div><div class="callout-body">Granting <strong>Modify</strong> access to a report shared broadly allows anyone with that permission to alter the report definition, add fields, or remove filters — potentially exposing data beyond the intended scope. Treat Modify access like admin access.</div></div>
       </div></div>
 
       <div class="step"><div class="step-num">2</div><div class="step-content">
-        <div class="step-title">Assign Eligibility Rule to Plan</div>
-        <div class="step-body">Navigate to the Compensation Plan → <strong>Eligibility Rules</strong> section. Add the eligibility rule. A worker must satisfy the eligibility rule to be assigned the plan during a Hire, Change Job, or Compensation Change transaction. Test with representative workers from each eligibility segment before activating.</div>
-        <div class="callout crit"><div class="callout-label">🔴 Critical</div><div class="callout-body">If an eligibility rule is too broad, workers may be offered plans they should not have access to during HR transactions. This has been the source of accidental executive plan assignment to non-executive workers in multiple Workday environments. Review eligibility rule logic with Total Rewards before attaching to any plan.</div></div>
+        <div class="step-title">Secure Sensitive Reports via Domain Policy</div>
+        <div class="step-body">For reports containing sensitive data (compensation, banking, health), ensure the report is secured not just by sharing, but by the underlying domain security policy. A user without access to the Compensation domain will see blank compensation fields even if they can run the report. Confirm domain security is correctly configured (see Vol. 02) before distributing sensitive reports.</div>
       </div></div>
 
       <div class="step"><div class="step-num">3</div><div class="step-content">
-        <div class="step-title">Test Eligibility with Representative Workers</div>
-        <div class="step-body">Navigate to <strong>View Compensation Eligibility for Worker</strong>. Enter test workers from each target population and confirm: (a) eligible workers see the plan, (b) ineligible workers do not. Test edge cases: workers on leave, part-time workers, recent transfers, and employees approaching tenure thresholds.</div>
+        <div class="step-title">Add Report to a Workday Dashboard or Worklet</div>
+        <div class="step-body">For reports intended for regular use by specific audiences (e.g., HR Dashboard for HR Partners), add the report as a <strong>Report Worklet</strong> to the relevant Workday dashboard. Navigate to <strong>Maintain Home Page Worklets</strong> or the specific dashboard → add the report. This surfaces the report in context rather than requiring users to search for it.</div>
       </div></div>
     </div>
   </div>
 
   <!-- S7 -->
   <div class="section" id="s7">
-    <div class="section-header"><div class="section-num">07</div><div><div class="section-title">Annual Review Cycle (Compensation Review)</div><div class="section-desc">Configuring and running the annual merit and bonus review process</div></div></div>
+    <div class="section-header"><div class="section-num">07</div><div><div class="section-title">Scheduling &amp; Integration Enablement</div><div class="section-desc">Automating report delivery and enabling EIB/Studio feeds</div></div></div>
 
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div class="step-content">
-        <div class="step-title">Create the Compensation Review</div>
-        <div class="step-body">Search <strong>Create Compensation Review</strong>. Enter the cycle name (e.g., <em>Annual Merit Review 2026</em>). Set the review period dates and the effective date for changes. Select the compensation plans in scope (Merit, Bonus, etc.). Assign the security groups that will participate (managers, HR Partners, HR leadership for budgets).</div>
+        <div class="step-title">Schedule Report Delivery</div>
+        <div class="step-body">Navigate to the report → <strong>Schedule</strong>. Set recurrence (daily, weekly, monthly), run time, and time zone. Select output format (Excel, CSV, PDF). Configure delivery: email to recipients, or deposit to a Workday external service / SFTP. Assign the run-as account — use an ISU if the report feeds a system process.</div>
+        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Scheduled reports run as the scheduled user's security context. If the scheduled user's security changes (role removed, group changed), the report may produce incomplete data silently. Review scheduled report run accounts quarterly as part of your integration ISU audit (Vol. 01).</div></div>
       </div></div>
 
       <div class="step"><div class="step-num">2</div><div class="step-content">
-        <div class="step-title">Configure Budget Pools</div>
-        <div class="step-body">Define the budget pool structure: total merit budget as a percentage of eligible payroll. Set budget allocation by org level — top-level budget distributed to business unit leaders, who allocate downward. Configure whether managers see individual budgets or only their team total. Set the <strong>budget alert threshold</strong> — warning when a manager exceeds or falls below guideline.</div>
-        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Budget pool configuration must be validated with Finance before the review cycle opens. Incorrect budget amounts visible to managers — even in a "test" cycle that accidentally goes live — can create significant HR and trust issues. Confirm budget figures are final and approved before activating the cycle.</div></div>
-      </div></div>
-
-      <div class="step"><div class="step-num">3</div><div class="step-content">
-        <div class="step-title">Configure Merit Guidelines</div>
-        <div class="step-body">Set up the <strong>guideline matrix</strong>: merit increase percentage recommendations based on performance rating and compa-ratio position. Workday surfaces guidelines as reference ranges to managers during the review — not hard limits unless you configure enforcement. Set whether guidelines are advisory only or enforce min/max boundaries on manager inputs.</div>
-        <div class="callout rat"><div class="callout-label">💡 Rationale</div><div class="callout-body">Guideline matrices drive pay equity outcomes — workers below the midpoint with strong performance should receive higher merit increases to move toward market. Hard enforcement of guidelines in Workday reduces pay equity risk and simplifies manager decision-making. Discuss enforcement approach with your Total Rewards lead before configuring.</div></div>
-      </div></div>
-
-      <div class="step"><div class="step-num">4</div><div class="step-content">
-        <div class="step-title">Set Review Eligibility</div>
-        <div class="step-body">Configure which workers are included in the review cycle. Standard exclusions: workers hired after a defined date (e.g., after Oct 1 for a Jan 1 effective date), workers on performance improvement plans, contingent workers, workers in specific countries with separate review processes. Use eligibility rules (Section 06) to define inclusions and exclusions precisely.</div>
-      </div></div>
-
-      <div class="step"><div class="step-num">5</div><div class="step-content">
-        <div class="step-title">Launch &amp; Monitor the Review</div>
-        <div class="step-body">Set the cycle status to <strong>In Progress</strong>. Monitor via <strong>Compensation Review Dashboard</strong> — track completion rates by org, budget utilisation, and guideline exceptions. Send reminder notifications to managers with incomplete submissions before the cycle close date. Close the cycle, review and approve the proposals, then activate the effective-dated compensation changes.</div>
-        <div class="callout note"><div class="callout-label">📋 Note</div><div class="callout-body">Compensation changes from the review cycle are staged as proposals until the cycle is closed and approved. They do not flow to payroll until the cycle is approved and the effective date is reached. Confirm your payroll cutoff dates with Payroll before setting the cycle effective date.</div></div>
+        <div class="step-title">Enable for Integration (EIB)</div>
+        <div class="step-body">Navigate to the report → <strong>Edit</strong> → check <strong>Web Service Enabled</strong> and <strong>Enable as Web Service</strong>. This makes the report accessible via Workday's REST/SOAP API and usable as the data source for an outbound EIB. Confirm the report output format matches the EIB's transformation expectations (see Vol. 01 Section 03, Step 2).</div>
+        <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Maintain a separate, dedicated report for each integration — never use a report shared with end users as an integration data source. If a user modifies a shared report to meet their needs, the integration breaks silently. Integration-dedicated reports should have HRIS Admin only sharing with Modify locked down.</div></div>
       </div></div>
     </div>
   </div>
 
   <!-- S8 -->
   <div class="section" id="s8">
-    <div class="section-header"><div class="section-num">08</div><div><div class="section-title">Validation &amp; Testing</div><div class="section-desc">Acceptance criteria before production activation</div></div></div>
+    <div class="section-header"><div class="section-num">08</div><div><div class="section-title">Report Governance &amp; Lifecycle</div><div class="section-desc">Managing the report inventory and preventing report sprawl</div></div></div>
+
+    <div class="subsection"><div class="subsection-title">Quarterly Report Governance Tasks</div></div>
     <table class="data-table">
-      <thead><tr><th>Test Scenario</th><th>Expected Outcome</th><th>Priority</th></tr></thead>
+      <thead><tr><th>Task</th><th>Method</th><th>Frequency</th></tr></thead>
       <tbody>
-        <tr><td>Grade assignment on Hire — correct grade defaults for job profile</td><td>Correct grade and range populate automatically on Hire transaction</td><td><span class="badge crit">Critical</span></td></tr>
-        <tr><td>Compa-ratio calculation — worker at midpoint</td><td>Compa-ratio displays as 1.00; range penetration 50%</td><td><span class="badge crit">Critical</span></td></tr>
-        <tr><td>Eligibility rule — eligible worker</td><td>Plan visible and assignable during Hire or Change Compensation</td><td><span class="badge crit">Critical</span></td></tr>
-        <tr><td>Eligibility rule — ineligible worker</td><td>Plan not offered; no override possible</td><td><span class="badge crit">Critical</span></td></tr>
-        <tr><td>Grade range update — compa-ratio recalculation</td><td>All workers on grade show updated compa-ratio immediately</td><td><span class="badge high">High</span></td></tr>
-        <tr><td>Merit guideline matrix — performance / compa-ratio intersection</td><td>Correct guideline % displays for each cell in manager view</td><td><span class="badge high">High</span></td></tr>
-        <tr><td>Budget pool — manager budget allocation</td><td>Manager sees correct budget amount; alert fires at threshold</td><td><span class="badge high">High</span></td></tr>
-        <tr><td>Review cycle eligibility exclusion</td><td>Excluded workers do not appear in manager's review worksheet</td><td><span class="badge high">High</span></td></tr>
-        <tr><td>Multi-currency grade — worker in non-base currency country</td><td>Worker's salary displayed and compared in local currency grade</td><td><span class="badge med">Medium</span></td></tr>
+        <tr><td>Full report inventory audit</td><td>Run <strong>All Custom Reports</strong> system report — export owner, last run date, sharing config</td><td><span class="badge med">Quarterly</span></td></tr>
+        <tr><td>Identify stale reports (not run in 180+ days)</td><td>Filter inventory by last run date → flag for owner review → delete if no longer needed</td><td><span class="badge med">Quarterly</span></td></tr>
+        <tr><td>Validate integration-enabled report output</td><td>Run integration-eligible reports manually and verify output matches expected schema</td><td><span class="badge med">Quarterly</span></td></tr>
+        <tr><td>Review sensitive report sharing</td><td>Audit reports containing compensation/PII fields — confirm sharing is limited to intended groups</td><td><span class="badge med">Quarterly</span></td></tr>
+        <tr><td>Review scheduled report run accounts</td><td>Confirm ISUs used for scheduled reports are still active and correctly permissioned</td><td><span class="badge med">Quarterly</span></td></tr>
+        <tr><td>Workday release — check for delivered report updates</td><td>Review Workday release notes for changes to business objects and field availability</td><td><span class="badge info">Per Release</span></td></tr>
       </tbody>
     </table>
+
+    <div class="callout rat"><div class="callout-label">💡 Rationale</div><div class="callout-body">Report sprawl is one of the most common and costly Workday governance failures. Unmanaged report inventories lead to: duplicate data being distributed to stakeholders, stale reports being cited in audits, and integration-feeding reports being modified inadvertently. A quarterly report audit is 2–3 hours of work that prevents months of data quality remediation.</div></div>
   </div>
 
   <!-- S9 -->
   <div class="section" id="s9">
-    <div class="section-header"><div class="section-num">09</div><div><div class="section-title">Rollback &amp; Risk Notes</div><div class="section-desc">Reversing compensation changes and managing critical risks</div></div></div>
-    <div class="callout crit"><div class="callout-label">🔴 Critical</div><div class="callout-body">Compensation changes that have been paid out through payroll <strong>cannot be rolled back in Workday</strong>. The only remediation is a payroll correction in the next pay cycle. This makes pre-production testing and Finance/Payroll sign-off non-negotiable for any configuration change with payroll impact.</div></div>
-    <div class="subsection"><div class="subsection-title">Risk Scenarios</div></div>
+    <div class="section-header"><div class="section-num">09</div><div><div class="section-title">Validation &amp; Testing</div><div class="section-desc">Acceptance criteria before report goes to stakeholders</div></div></div>
     <table class="data-table">
-      <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+      <thead><tr><th>Test Scenario</th><th>Expected Outcome</th><th>Priority</th></tr></thead>
       <tbody>
-        <tr><td>Grade range updated — incorrect compa-ratios displayed to managers during review</td><td><span class="badge crit">Critical</span></td><td>Freeze grade range changes during active review cycles; sequence: close cycle → update ranges → open next cycle</td></tr>
-        <tr><td>Eligibility rule too broad — ineligible workers assigned executive plan</td><td><span class="badge crit">Critical</span></td><td>Total Rewards sign-off on all eligibility rules; test with ineligible personas before attaching to plan</td></tr>
-        <tr><td>Bonus plan proration error — incorrect payouts for mid-year hires</td><td><span class="badge high">High</span></td><td>Payroll validation of proration logic in sandbox with representative test cases before production activation</td></tr>
-        <tr><td>Pay equity exposure from grade structure design</td><td><span class="badge high">High</span></td><td>Legal and Total Rewards review of grade structure before launch; run pay equity analysis post-assignment</td></tr>
-        <tr><td>Review cycle effective date conflicts with payroll cutoff</td><td><span class="badge high">High</span></td><td>Confirm payroll calendar before setting review effective dates; include Payroll lead in cycle planning</td></tr>
+        <tr><td>Row count validation — compare to known source</td><td>Report row count matches expected headcount or record count</td><td><span class="badge crit">Critical</span></td></tr>
+        <tr><td>Null / blank field handling</td><td>Blank fields return empty (not error); calculated fields handle nulls gracefully</td><td><span class="badge high">High</span></td></tr>
+        <tr><td>Filter accuracy — spot check excluded records</td><td>Records that should be excluded are not present in output</td><td><span class="badge crit">Critical</span></td></tr>
+        <tr><td>Calculated field accuracy — spot check 10+ records</td><td>Computed values match manual calculations from source fields</td><td><span class="badge crit">Critical</span></td></tr>
+        <tr><td>Security scoping — run as different user personas</td><td>Each user sees only their permitted workers; no cross-org data leakage</td><td><span class="badge crit">Critical</span></td></tr>
+        <tr><td>Performance — runtime under acceptable threshold</td><td>Report completes in &lt;60 seconds for standard load; &lt;5 min for large data sets</td><td><span class="badge high">High</span></td></tr>
+        <tr><td>Output format — CSV/Excel integrity</td><td>Exported files open cleanly; no encoding issues; column headers match field names</td><td><span class="badge med">Medium</span></td></tr>
+        <tr><td>Integration output — schema validation</td><td>XML/CSV output matches the expected schema for the consuming integration</td><td><span class="badge high">High</span></td></tr>
       </tbody>
     </table>
   </div>
 
   <!-- S10 -->
   <div class="section" id="s10">
-    <div class="section-header"><div class="section-num">10</div><div><div class="section-title">Operator Notes</div><div class="section-desc">Organisation-specific compensation design decisions</div></div></div>
+    <div class="section-header"><div class="section-num">10</div><div><div class="section-title">Operator Notes</div><div class="section-desc">Report-specific design decisions and metadata</div></div></div>
     <div class="notes-area">
-      <p style="color:var(--text-dim);font-size:13px;font-style:italic;margin-bottom:16px;">Complete for each compensation grade, plan, or review cycle build.</p>
+      <p style="color:var(--text-dim);font-size:13px;font-style:italic;margin-bottom:16px;">Complete for each custom report build.</p>
       <div class="nrow">
-        <div><div class="nf-label">Grade / Plan / Cycle Name</div><input class="nfield" type="text" placeholder="e.g. G05-Senior-Manager-USD"/></div>
-        <div><div class="nf-label">Scope (Region / Currency)</div><input class="nfield" type="text" placeholder="e.g. North America / USD Annual"/></div>
+        <div><div class="nf-label">Report Name</div><input class="nfield" type="text" placeholder="e.g. RPT_Headcount_ByOrg_Active"/></div>
+        <div><div class="nf-label">Report Type</div><input class="nfield" type="text" placeholder="Advanced / Matrix / Composite"/></div>
       </div>
       <div class="nrow">
-        <div><div class="nf-label">Total Rewards Lead</div><input class="nfield" type="text" placeholder="Name / role"/></div>
-        <div><div class="nf-label">Config Date / Effective Date</div><input class="nfield" type="text" placeholder="DD/MM/YYYY"/></div>
+        <div><div class="nf-label">Primary Business Object</div><input class="nfield" type="text" placeholder="e.g. All Active Workers"/></div>
+        <div><div class="nf-label">Report Owner</div><input class="nfield" type="text" placeholder="Name / role"/></div>
       </div>
-      <div style="margin-bottom:16px;"><div class="nf-label">Grade Range Details (Min / Mid / Max per grade)</div><textarea class="ntarea" placeholder="G01: $45,000 / $60,000 / $75,000&#10;G02: $55,000 / $72,500 / $90,000&#10;G03: $70,000 / $92,500 / $115,000&#10;..."></textarea></div>
-      <div style="margin-bottom:16px;"><div class="nf-label">Plans Configured &amp; Eligibility Rules</div><textarea class="ntarea" placeholder="SAL-Annual-USD: Elig — All FTE, North America&#10;BONUS-Annual-Director: Elig — Director+ Management Level&#10;ALLOW-Car-Executive: Elig — VP+ or Car Policy Eligible"></textarea></div>
-      <div><div class="nf-label">Design Decisions, Pay Equity Notes &amp; Exceptions</div><textarea class="ntarea" placeholder="Document C&B design rationale, Works Council / legal requirements, pay equity review outcomes, Finance sign-off details..."></textarea></div>
+      <div class="nrow">
+        <div><div class="nf-label">Audience / Shared With</div><input class="nfield" type="text" placeholder="e.g. HR Partners — Run access"/></div>
+        <div><div class="nf-label">Scheduled? Frequency?</div><input class="nfield" type="text" placeholder="e.g. Weekly Monday 06:00 EST"/></div>
+      </div>
+      <div style="margin-bottom:16px;"><div class="nf-label">Fields &amp; Calculated Fields Inventory</div><textarea class="ntarea" placeholder="List all columns including calculated fields:&#10;Worker ID, Full Name, Position, Supervisory Org, Manager, Location, Hire Date&#10;CF_Tenure_Years: Date Difference (Hire Date → Today)&#10;CF_CompaRatio: Annual Base / Grade Midpoint"></textarea></div>
+      <div style="margin-bottom:16px;"><div class="nf-label">Filters Applied</div><textarea class="ntarea" placeholder="Employment Status = Active&#10;Supervisory Org = [Prompt]&#10;Employee Type ≠ Contingent Worker"></textarea></div>
+      <div><div class="nf-label">Design Decisions, Known Limitations &amp; Data Quality Notes</div><textarea class="ntarea" placeholder="Document any business logic decisions, null handling choices, known data gaps, integration dependencies..."></textarea></div>
     </div>
   </div>
 
   <!-- S11 -->
   <div class="section" id="s11">
-    <div class="section-header"><div class="section-num">11</div><div><div class="section-title">Change Log</div><div class="section-desc">Audit trail for all compensation configuration changes</div></div></div>
+    <div class="section-header"><div class="section-num">11</div><div><div class="section-title">Change Log</div></div></div>
     <table class="data-table">
-      <thead><tr><th>Version</th><th>Date</th><th>Changed By</th><th>Change Description</th><th>Payroll Impact</th><th>Approved By</th></tr></thead>
+      <thead><tr><th>Version</th><th>Date</th><th>Changed By</th><th>Change Description</th><th>Impact</th><th>Approved By</th></tr></thead>
       <tbody>
-        <tr><td>1.0</td><td>[Date]</td><td>[Name]</td><td>Initial grade and plan configuration</td><td>None (new setup)</td><td>[Approver]</td></tr>
-        <tr><td>—</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>1.0</td><td>[Date]</td><td>[Name]</td><td>Initial report build and sharing</td><td>New report</td><td>[Approver]</td></tr>
         <tr><td>—</td><td></td><td></td><td></td><td></td><td></td></tr>
         <tr><td>—</td><td></td><td></td><td></td><td></td><td></td></tr>
       </tbody>
     </table>
-    <div class="callout note" style="margin-top:24px;"><div class="callout-label">📋 Note</div><div class="callout-body">The <strong>Payroll Impact</strong> column is unique to this volume — it must be completed for every change. Values: <em>None</em>, <em>Future cycle only</em>, <em>Retro correction required</em>, or <em>Immediate</em>. This column drives the sign-off tier required before activating any change.</div></div>
   </div>
 
   <div class="footer">
     <div class="footer-brand">KAIZEN OS</div>
-    <div class="footer-note">Workday SOP Series Vol. 04 — Compensation Grades &amp; Plans · v1.0 · © 2026 Kaizen OS. All rights reserved.</div>
+    <div class="footer-note">Workday SOP Series Vol. 05 — Custom Reports &amp; Calculated Fields · v1.0 · © 2026 Kaizen OS. All rights reserved.</div>
   </div>
 
 </div>
