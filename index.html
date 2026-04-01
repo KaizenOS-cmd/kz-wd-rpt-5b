@@ -1,1 +1,416 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Placeholder</title></head><body><p>Coming soon.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Workday Compensation Grades & Plans SOP — Kaizen OS</title>
+<style>
+  :root {
+    --bg:#0e0e0e;--surface:#161616;--surface2:#1e1e1e;--border:#2a2a2a;
+    --accent:#c8f04a;--accent-dim:#a8cc30;--text:#e8e8e8;--text-muted:#888;--text-dim:#555;
+    --tip:#1a2e1a;--tip-b:#4caf50;--tip-t:#a5d6a7;
+    --warn:#2e1a0e;--warn-b:#ff9800;--warn-t:#ffcc80;
+    --note:#1a1e2e;--note-b:#5c7cfa;--note-t:#a5b4fc;
+    --rat:#2a1e2e;--rat-b:#a855f7;--rat-t:#d8b4fe;
+    --crit:#2e0e0e;--crit-b:#ef4444;--crit-t:#fca5a5;
+    --font:'Segoe UI',system-ui,sans-serif;--mono:'Courier New',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.7}
+  .page{max-width:900px;margin:0 auto;padding:48px 32px}
+  .cover{border-bottom:1px solid var(--border);padding-bottom:48px;margin-bottom:48px}
+  .tags{display:flex;align-items:center;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+  .series-tag{display:inline-flex;align-items:center;background:rgba(200,240,74,.06);border:1px solid rgba(200,240,74,.2);border-radius:4px;padding:5px 12px}
+  .series-label{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--accent-dim);text-transform:uppercase}
+  .brand-tag{display:inline-flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:6px 14px}
+  .brand-dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
+  .brand-name{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase}
+  .cover-title{font-size:36px;font-weight:800;line-height:1.2;color:#fff;margin-bottom:12px}
+  .cover-title span{color:var(--accent)}
+  .cover-sub{font-size:16px;color:var(--text-muted);margin-bottom:32px;max-width:620px}
+  .meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+  .meta-item{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px}
+  .meta-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px}
+  .meta-value{font-size:14px;color:var(--text);font-weight:600}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px 28px;margin-bottom:48px}
+  .toc-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px}
+  .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .toc-list li{display:flex;align-items:center;gap:12px}
+  .toc-num{font-size:11px;font-weight:700;color:var(--accent);font-family:var(--mono);min-width:24px}
+  .toc-list a{color:var(--text-muted);text-decoration:none;font-size:14px;transition:color .2s}
+  .toc-list a:hover{color:var(--accent)}
+  .section{margin-bottom:56px;scroll-margin-top:24px}
+  .section-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+  .section-num{font-size:11px;font-weight:800;font-family:var(--mono);color:var(--accent);background:rgba(200,240,74,.08);border:1px solid rgba(200,240,74,.2);border-radius:4px;padding:4px 8px;margin-top:4px;white-space:nowrap}
+  .section-title{font-size:22px;font-weight:700;color:#fff}
+  .section-desc{font-size:14px;color:var(--text-muted);margin-top:4px}
+  .callout{border-left:3px solid;border-radius:0 6px 6px 0;padding:14px 18px;margin:20px 0}
+  .callout-label{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+  .callout-body{font-size:14px;line-height:1.6}
+  .callout.tip{background:var(--tip);border-color:var(--tip-b)}.callout.tip .callout-label{color:var(--tip-b)}.callout.tip .callout-body{color:var(--tip-t)}
+  .callout.warn{background:var(--warn);border-color:var(--warn-b)}.callout.warn .callout-label{color:var(--warn-b)}.callout.warn .callout-body{color:var(--warn-t)}
+  .callout.note{background:var(--note);border-color:var(--note-b)}.callout.note .callout-label{color:var(--note-b)}.callout.note .callout-body{color:var(--note-t)}
+  .callout.rat{background:var(--rat);border-color:var(--rat-b)}.callout.rat .callout-label{color:var(--rat-b)}.callout.rat .callout-body{color:var(--rat-t)}
+  .callout.crit{background:var(--crit);border-color:var(--crit-b)}.callout.crit .callout-label{color:var(--crit-b)}.callout.crit .callout-body{color:var(--crit-t)}
+  .steps{display:flex;flex-direction:column;gap:0}
+  .step{display:flex;gap:20px;position:relative}
+  .step:not(:last-child)::after{content:'';position:absolute;left:18px;top:44px;bottom:0;width:1px;background:var(--border)}
+  .step-num{width:36px;height:36px;border-radius:50%;background:var(--surface2);border:2px solid var(--accent);color:var(--accent);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:4px;font-family:var(--mono);position:relative;z-index:1}
+  .step-content{flex:1;padding-bottom:28px}
+  .step-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+  .step-body{font-size:14px;color:var(--text-muted);line-height:1.7}
+  .checklist{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .checklist li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text)}
+  .check-box{width:18px;height:18px;border:2px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:2px;cursor:pointer;transition:all .2s}
+  .check-box.checked{background:var(--accent);border-color:var(--accent)}
+  .check-label{flex:1}
+  .check-label small{display:block;color:var(--text-dim);font-size:12px;margin-top:2px}
+  .data-table{width:100%;border-collapse:collapse;font-size:14px}
+  .data-table th{background:var(--surface2);color:var(--text-muted);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}
+  .data-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+  .data-table tr:last-child td{border-bottom:none}
+  .data-table tr:hover td{background:rgba(255,255,255,.02)}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px}
+  .badge.high{background:rgba(255,99,99,.15);color:#ff9999}
+  .badge.med{background:rgba(255,165,0,.15);color:#ffcc80}
+  .badge.low{background:rgba(76,175,80,.15);color:#a5d6a7}
+  .badge.crit{background:rgba(239,68,68,.2);color:#fca5a5}
+  .badge.info{background:rgba(92,124,250,.15);color:#a5b4fc}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px}
+  .card-title{font-size:13px;font-weight:700;color:var(--accent-dim);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+  .subsection{margin:28px 0}
+  .subsection-title{font-size:14px;font-weight:700;color:var(--accent-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+  .divider{border:none;border-top:1px solid var(--border);margin:40px 0}
+  .notes-area{background:var(--surface);border:1px dashed var(--border);border-radius:8px;padding:24px}
+  .nf-label{font-size:11px;color:var(--text-dim);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+  .nfield{background:transparent;border:none;border-bottom:1px solid var(--border);width:100%;color:var(--text);font-family:var(--font);font-size:14px;padding:8px 0;margin-bottom:16px;outline:none}
+  .nfield::placeholder{color:var(--text-dim)}
+  .nfield:focus{border-color:var(--accent)}
+  .ntarea{background:var(--surface2);border:1px solid var(--border);border-radius:6px;width:100%;color:var(--text);font-family:var(--font);font-size:14px;padding:12px 16px;outline:none;resize:vertical;min-height:120px}
+  .ntarea:focus{border-color:var(--accent)}
+  .nrow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  /* Comp band visual */
+  .band-visual{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px;margin:20px 0}
+  .band-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px}
+  .band-track{position:relative;height:36px;background:var(--surface2);border-radius:6px;margin-bottom:8px}
+  .band-fill{position:absolute;top:0;left:0;height:100%;border-radius:6px;background:linear-gradient(90deg,rgba(200,240,74,.15),rgba(200,240,74,.4));display:flex;align-items:center;justify-content:space-between;padding:0 12px}
+  .band-min,.band-max{font-size:12px;font-weight:700;color:var(--accent)}
+  .band-mid-line{position:absolute;top:0;left:50%;height:100%;width:2px;background:var(--accent);opacity:.5}
+  .band-mid-label{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--accent);font-weight:700}
+  .band-worker{position:absolute;top:50%;left:62%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+  .band-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim)}
+  .footer{border-top:1px solid var(--border);padding-top:32px;margin-top:64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .footer-brand{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:2px}
+  .footer-note{font-size:12px;color:var(--text-dim)}
+  p{margin-bottom:12px;color:var(--text-muted);font-size:14px}
+  ul,ol{padding-left:20px;color:var(--text-muted);font-size:14px;line-height:1.8}
+  strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <div class="tags">
+      <div class="series-tag"><span class="series-label">Workday SOP Series · Vol. 04</span></div>
+      <div class="brand-tag"><div class="brand-dot"></div><span class="brand-name">Kaizen OS</span></div>
+    </div>
+    <div class="cover-title">Compensation Grades<br><span>&amp; Plans</span></div>
+    <p class="cover-sub">A practitioner SOP for designing and configuring Workday Compensation — covering grade structures, salary ranges, compensation plans, eligibility rules, and annual review cycle setup. The highest-stakes configuration area in Workday.</p>
+    <div class="meta-grid">
+      <div class="meta-item"><div class="meta-label">Document Type</div><div class="meta-value">SOP Template</div></div>
+      <div class="meta-item"><div class="meta-label">Series Volume</div><div class="meta-value">04 of 06</div></div>
+      <div class="meta-item"><div class="meta-label">Audience</div><div class="meta-value">Workday Admins / Consultants</div></div>
+      <div class="meta-item"><div class="meta-label">Scope</div><div class="meta-value">Compensation Configuration</div></div>
+      <div class="meta-item"><div class="meta-label">Version</div><div class="meta-value">1.0</div></div>
+      <div class="meta-item"><div class="meta-label">Status</div><div class="meta-value">Active</div></div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ul class="toc-list">
+      <li><span class="toc-num">01</span><a href="#s1">How to Use This SOP</a></li>
+      <li><span class="toc-num">02</span><a href="#s2">Compensation Architecture Primer</a></li>
+      <li><span class="toc-num">03</span><a href="#s3">Pre-Configuration Checklist</a></li>
+      <li><span class="toc-num">04</span><a href="#s4">Compensation Grade &amp; Grade Profile Setup</a></li>
+      <li><span class="toc-num">05</span><a href="#s5">Compensation Plan Configuration</a></li>
+      <li><span class="toc-num">06</span><a href="#s6">Eligibility Rules</a></li>
+      <li><span class="toc-num">07</span><a href="#s7">Annual Review Cycle (Compensation Review)</a></li>
+      <li><span class="toc-num">08</span><a href="#s8">Validation &amp; Testing</a></li>
+      <li><span class="toc-num">09</span><a href="#s9">Rollback &amp; Risk Notes</a></li>
+      <li><span class="toc-num">10</span><a href="#s10">Operator Notes</a></li>
+      <li><span class="toc-num">11</span><a href="#s11">Change Log</a></li>
+    </ul>
+  </div>
+
+  <!-- S1 -->
+  <div class="section" id="s1">
+    <div class="section-header"><div class="section-num">01</div><div><div class="section-title">How to Use This SOP</div><div class="section-desc">Read before touching any compensation configuration</div></div></div>
+    <p>Compensation configuration is the highest-stakes area in Workday. Errors here directly impact payroll, employee pay, and regulatory compliance. A misconfigured salary grade, plan, or eligibility rule can result in incorrect pay for hundreds of workers, audit failures, or discriminatory pay outcomes.</p>
+    <div class="callout crit"><div class="callout-label">🔴 Critical</div><div class="callout-body">Compensation configuration changes that affect <strong>existing workers</strong> may trigger mass retro-pay calculations or compensation change events. Always confirm with your Payroll lead whether a config change has retrospective impact before saving in production. When in doubt — test in sandbox first, every time.</div></div>
+    <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Duplicate this SOP per compensation structure or review cycle. File naming convention: <em>SOP_Comp_Grades_[Region]_v1.0_2026.html</em> or <em>SOP_Comp_AnnualReview_[Year].html</em>. Keep one file per configuration object — grades, plans, and review cycles each warrant their own record.</div></div>
+  </div>
+
+  <!-- S2 -->
+  <div class="section" id="s2">
+    <div class="section-header"><div class="section-num">02</div><div><div class="section-title">Compensation Architecture Primer</div><div class="section-desc">The full model before you configure anything</div></div></div>
+
+    <div class="grid2">
+      <div class="card"><div class="card-title">Compensation Grade</div><p style="font-size:13px;color:var(--text-muted);margin:0">Defines the salary band — minimum, midpoint, maximum. Typically maps to a job level or career band. Grades are currency and frequency-specific. One grade per level per market.</p></div>
+      <div class="card"><div class="card-title">Grade Profile</div><p style="font-size:13px;color:var(--text-muted);margin:0">A sub-band within a grade — used where a single grade spans multiple geographies or specialisations with different pay ranges. Allows range differentiation without creating separate grades.</p></div>
+      <div class="card"><div class="card-title">Compensation Plan</div><p style="font-size:13px;color:var(--text-muted);margin:0">The pay component — Salary, Bonus, Stock, Allowance, Car, etc. Each component is a separate plan. Workers are assigned plans based on eligibility rules. Plans drive what appears on the worker's compensation tab.</p></div>
+      <div class="card"><div class="card-title">Compensation Package</div><p style="font-size:13px;color:var(--text-muted);margin:0">A bundle of plans applied together — simplifies worker assignment. Instead of assigning 5 plans individually, assign one package. Packages drive consistency and reduce config errors.</p></div>
+      <div class="card"><div class="card-title">Eligibility Rules</div><p style="font-size:13px;color:var(--text-muted);margin:0">Conditions that determine which workers qualify for a plan or grade. Built using worker attributes (employee type, location, job family, management level). The mechanism for targeted comp design.</p></div>
+      <div class="card"><div class="card-title">Compensation Review</div><p style="font-size:13px;color:var(--text-muted);margin:0">The annual / merit cycle. A time-boxed process where managers propose changes within defined guidelines (merit %, budget pools). Requires its own cycle setup, eligibility, and guideline configuration.</p></div>
+    </div>
+
+    <div class="subsection"><div class="subsection-title">Compensation Grade Band — Visual Reference</div></div>
+    <div class="band-visual">
+      <div class="band-label">Example: Grade 5 — Senior Manager — USD Annual</div>
+      <div class="band-track">
+        <div class="band-fill" style="width:100%">
+          <span class="band-min">$95,000</span>
+          <span class="band-max">$165,000</span>
+        </div>
+        <div class="band-mid-label">Midpoint</div>
+        <div class="band-mid-line"></div>
+        <div class="band-worker" title="Worker's current salary position"></div>
+      </div>
+      <div class="band-meta"><span>Min (57.6% of Mid)</span><span>Mid: $130,000</span><span>Max (126.9% of Mid)</span></div>
+    </div>
+    <p style="font-size:13px;color:var(--text-dim);margin-top:-8px;">● Dot = example worker position at 62% of range (Compa-ratio: 1.02)</p>
+
+    <div class="callout rat"><div class="callout-label">💡 Rationale</div><div class="callout-body">Workday stores salary ranges at the grade level — not on the worker record directly. When you update a grade's range, all workers assigned to that grade immediately reflect the new range for compa-ratio and range penetration calculations. This is why grade updates require careful coordination with Compensation and Finance teams before saving.</div></div>
+  </div>
+
+  <!-- S3 -->
+  <div class="section" id="s3">
+    <div class="section-header"><div class="section-num">03</div><div><div class="section-title">Pre-Configuration Checklist</div><div class="section-desc">Complete before any compensation configuration</div></div></div>
+    <div class="subsection"><div class="subsection-title">Design &amp; Data Readiness</div></div>
+    <ul class="checklist">
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Compensation philosophy and grade structure approved by Total Rewards / C&B lead<small>[ORG-SPECIFIC] Number of grades, band widths, spread percentages, midpoint progression confirmed</small></span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Currency and frequency confirmed for each grade (Annual / Monthly / Hourly)<small>Multi-currency orgs need one grade set per currency — do not attempt to mix currencies within a single grade</small></span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Pay ranges sourced and approved — min, mid, max per grade per market<small>Typically sourced from salary survey data (Mercer, Willis Towers Watson, Radford)</small></span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Compensation plan inventory defined — all pay components documented (base, bonus, LTI, allowances)</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Eligibility rules designed — which worker populations qualify for each plan</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Compensation packages designed if applicable — which plans bundle together per role family</span></li>
+    </ul>
+    <div class="subsection"><div class="subsection-title">Stakeholder Sign-offs</div></div>
+    <ul class="checklist">
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Total Rewards / C&B team sign-off on grade structure and pay ranges</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Finance / Payroll sign-off on frequency, currency, and pay components</span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Legal / Pay Equity review — confirm grade structure does not create discriminatory pay exposure<small>Required in jurisdictions with pay transparency or equal pay legislation (UK, EU, several US states)</small></span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">Works Council notification for any changes to pay structure that affect collective agreements<small>[ORG-SPECIFIC] — DACH, France, Netherlands, Nordics typically require notification</small></span></li>
+      <li><span class="check-box" onclick="toggleCheck(this)"></span><span class="check-label">HRIS lead / Workday Compensation Admin sign-off on technical design</span></li>
+    </ul>
+  </div>
+
+  <!-- S4 -->
+  <div class="section" id="s4">
+    <div class="section-header"><div class="section-num">04</div><div><div class="section-title">Compensation Grade &amp; Grade Profile Setup</div><div class="section-desc">Configuring salary bands in Workday</div></div></div>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-title">Create the Compensation Grade</div>
+        <div class="step-body">Search <strong>Create Compensation Grade</strong>. Enter the grade name per your naming convention (e.g., <em>G05-Senior-Manager-USD</em>). Set the currency and frequency. Add a description documenting the intended job level scope. Save — the grade exists but has no range data yet.</div>
+        <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Include currency code in the grade name. In multi-currency environments, you will have parallel grade structures (G05-USD, G05-GBP, G05-EUR). Clear naming prevents accidental assignment of a wrong-currency grade to a worker — a common and painful error to remediate.</div></div>
+      </div></div>
+
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-title">Add Grade Steps / Pay Range</div>
+        <div class="step-body">Within the grade, navigate to <strong>Compensation Grade Profiles</strong> or the <strong>Pay Range</strong> section. Enter Minimum, Midpoint, and Maximum values. Workday calculates the spread automatically. Verify: <strong>Spread %</strong> = (Max − Min) / Min × 100. Confirm this matches your C&amp;B design document before saving.</div>
+        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Saving a grade range update immediately recalculates compa-ratios and range penetration for all workers assigned to that grade. This can trigger alerts to managers and HR Partners. Coordinate with your HR Ops team before updating ranges on grades with existing worker assignments.</div></div>
+      </div></div>
+
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-title">Create Grade Profiles (if applicable)</div>
+        <div class="step-body">If your design requires sub-ranges within a grade (e.g., same grade level but different pay ranges for London vs. regional UK), create <strong>Compensation Grade Profiles</strong>. Navigate to <strong>Create Compensation Grade Profile</strong>. Link the profile to the parent grade. Set the profile-level min/mid/max. Profiles override the parent grade range for workers assigned to the profile.</div>
+        <div class="callout rat"><div class="callout-label">💡 Rationale</div><div class="callout-body">Grade Profiles allow geographic or specialisation-based pay differentiation without proliferating top-level grades. Fewer grades = simpler maintenance. Use profiles aggressively in global orgs with cost-of-living or market differentials within a single job level.</div></div>
+      </div></div>
+
+      <div class="step"><div class="step-num">4</div><div class="step-content">
+        <div class="step-title">Assign Grades to Job Profiles</div>
+        <div class="step-body">Navigate to the relevant <strong>Job Profile</strong> and add the compensation grade in the Compensation section. This links the grade to the job profile — when a worker is hired or transferred into a position using this job profile, the grade is defaulted. Confirm the correct grade is mapped before completing any job profile updates.</div>
+        <div class="callout note"><div class="callout-label">📋 Note</div><div class="callout-body">Grade assignment on Job Profiles is a default — HR Partners can override at the individual worker level during a Hire or Change Job transaction. Governance controls (condition rules on the Hire/Change Job BP) should restrict how far from the default grade a worker can be placed.</div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- S5 -->
+  <div class="section" id="s5">
+    <div class="section-header"><div class="section-num">05</div><div><div class="section-title">Compensation Plan Configuration</div><div class="section-desc">Setting up salary, bonus, allowance, and LTI plans</div></div></div>
+
+    <div class="subsection"><div class="subsection-title">Plan Types Reference</div></div>
+    <table class="data-table">
+      <thead><tr><th>Plan Type</th><th>Use For</th><th>Key Config Fields</th><th>Frequency</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Salary Plan</strong></td><td>Base salary / hourly rate</td><td>Currency, frequency, grade, eligibility rule</td><td>Annual / Monthly / Hourly</td></tr>
+        <tr><td><strong>Bonus Plan</strong></td><td>Cash bonus / incentive pay</td><td>Target %, calculation type, eligibility, proration rules</td><td>Annual / Quarterly</td></tr>
+        <tr><td><strong>Merit Plan</strong></td><td>Annual merit increase</td><td>Budget %, guideline matrix, eligibility, review cycle link</td><td>Annual (review cycle)</td></tr>
+        <tr><td><strong>Stock Plan</strong></td><td>Equity / LTI</td><td>Grant type, vesting schedule, eligibility</td><td>Annual / Ad hoc</td></tr>
+        <tr><td><strong>Allowance Plan</strong></td><td>Fixed recurring allowances (car, phone, housing)</td><td>Fixed amount or %, frequency, currency</td><td>Monthly / Annual</td></tr>
+        <tr><td><strong>Unit Plan</strong></td><td>Commission / variable units</td><td>Unit rate, currency, eligibility</td><td>Monthly / Per-event</td></tr>
+      </tbody>
+    </table>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-title">Create the Compensation Plan</div>
+        <div class="step-body">Search <strong>Create Compensation Plan</strong>. Select the plan type. Name per convention (e.g., <em>SAL-Annual-USD</em>, <em>BONUS-Annual-Executive</em>). Set the currency, frequency, and compensation category. Link to the relevant compensation grade if applicable (salary plans).</div>
+      </div></div>
+
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-title">Configure Plan Rules &amp; Defaults</div>
+        <div class="step-body">Set the <strong>default amount or percentage</strong> if applicable. Configure <strong>rounding rules</strong> (nearest $100, nearest $1,000 — align with your C&amp;B policy). Set <strong>proration rules</strong> for mid-year hires or terminations. For bonus plans, set the <strong>target %</strong> per eligibility segment.</div>
+        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Proration rules on bonus and merit plans must be validated with Payroll. Incorrect proration logic on an annual bonus plan can result in incorrect payout calculations for all mid-year joiners — a high-volume, high-sensitivity error category.</div></div>
+      </div></div>
+
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-title">Create Compensation Package (if applicable)</div>
+        <div class="step-body">Search <strong>Create Compensation Package</strong>. Name the package per role family or level (e.g., <em>PKG-Executive-USD</em>). Add the relevant plans: Salary + Bonus + LTI + Car Allowance. Set the default grade. The package becomes the single assignment object used on Hire and Change Job transactions — simplifying HR Partner experience and reducing plan assignment errors.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- S6 -->
+  <div class="section" id="s6">
+    <div class="section-header"><div class="section-num">06</div><div><div class="section-title">Eligibility Rules</div><div class="section-desc">Controlling which workers qualify for which plans and grades</div></div></div>
+    <p>Eligibility rules are the gatekeeping mechanism for compensation plans. They ensure the right workers are on the right plans — and that plans don't accidentally apply to ineligible populations (e.g., a contractor on an executive bonus plan).</p>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-title">Create the Eligibility Rule</div>
+        <div class="step-body">Search <strong>Create Eligibility Rule</strong>. Name descriptively (e.g., <em>Elig: Full-Time Employees — EMEA — Exempt</em>). Select the criteria type: <strong>Include</strong> (who qualifies) or <strong>Exclude</strong> (who does not). Build the condition using worker attributes: Employee Type, Location, Job Family, Management Level, Hire Date, etc.</div>
+        <div class="callout tip"><div class="callout-label">✅ Tip</div><div class="callout-body">Build eligibility rules using Exclude logic where possible — it is more durable. Excluding "Contingent Workers" from a bonus plan is more stable than including specific employee types, because new employee types added in future will be automatically excluded unless explicitly included.</div></div>
+      </div></div>
+
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-title">Assign Eligibility Rule to Plan</div>
+        <div class="step-body">Navigate to the Compensation Plan → <strong>Eligibility Rules</strong> section. Add the eligibility rule. A worker must satisfy the eligibility rule to be assigned the plan during a Hire, Change Job, or Compensation Change transaction. Test with representative workers from each eligibility segment before activating.</div>
+        <div class="callout crit"><div class="callout-label">🔴 Critical</div><div class="callout-body">If an eligibility rule is too broad, workers may be offered plans they should not have access to during HR transactions. This has been the source of accidental executive plan assignment to non-executive workers in multiple Workday environments. Review eligibility rule logic with Total Rewards before attaching to any plan.</div></div>
+      </div></div>
+
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-title">Test Eligibility with Representative Workers</div>
+        <div class="step-body">Navigate to <strong>View Compensation Eligibility for Worker</strong>. Enter test workers from each target population and confirm: (a) eligible workers see the plan, (b) ineligible workers do not. Test edge cases: workers on leave, part-time workers, recent transfers, and employees approaching tenure thresholds.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- S7 -->
+  <div class="section" id="s7">
+    <div class="section-header"><div class="section-num">07</div><div><div class="section-title">Annual Review Cycle (Compensation Review)</div><div class="section-desc">Configuring and running the annual merit and bonus review process</div></div></div>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content">
+        <div class="step-title">Create the Compensation Review</div>
+        <div class="step-body">Search <strong>Create Compensation Review</strong>. Enter the cycle name (e.g., <em>Annual Merit Review 2026</em>). Set the review period dates and the effective date for changes. Select the compensation plans in scope (Merit, Bonus, etc.). Assign the security groups that will participate (managers, HR Partners, HR leadership for budgets).</div>
+      </div></div>
+
+      <div class="step"><div class="step-num">2</div><div class="step-content">
+        <div class="step-title">Configure Budget Pools</div>
+        <div class="step-body">Define the budget pool structure: total merit budget as a percentage of eligible payroll. Set budget allocation by org level — top-level budget distributed to business unit leaders, who allocate downward. Configure whether managers see individual budgets or only their team total. Set the <strong>budget alert threshold</strong> — warning when a manager exceeds or falls below guideline.</div>
+        <div class="callout warn"><div class="callout-label">⚠️ Warning</div><div class="callout-body">Budget pool configuration must be validated with Finance before the review cycle opens. Incorrect budget amounts visible to managers — even in a "test" cycle that accidentally goes live — can create significant HR and trust issues. Confirm budget figures are final and approved before activating the cycle.</div></div>
+      </div></div>
+
+      <div class="step"><div class="step-num">3</div><div class="step-content">
+        <div class="step-title">Configure Merit Guidelines</div>
+        <div class="step-body">Set up the <strong>guideline matrix</strong>: merit increase percentage recommendations based on performance rating and compa-ratio position. Workday surfaces guidelines as reference ranges to managers during the review — not hard limits unless you configure enforcement. Set whether guidelines are advisory only or enforce min/max boundaries on manager inputs.</div>
+        <div class="callout rat"><div class="callout-label">💡 Rationale</div><div class="callout-body">Guideline matrices drive pay equity outcomes — workers below the midpoint with strong performance should receive higher merit increases to move toward market. Hard enforcement of guidelines in Workday reduces pay equity risk and simplifies manager decision-making. Discuss enforcement approach with your Total Rewards lead before configuring.</div></div>
+      </div></div>
+
+      <div class="step"><div class="step-num">4</div><div class="step-content">
+        <div class="step-title">Set Review Eligibility</div>
+        <div class="step-body">Configure which workers are included in the review cycle. Standard exclusions: workers hired after a defined date (e.g., after Oct 1 for a Jan 1 effective date), workers on performance improvement plans, contingent workers, workers in specific countries with separate review processes. Use eligibility rules (Section 06) to define inclusions and exclusions precisely.</div>
+      </div></div>
+
+      <div class="step"><div class="step-num">5</div><div class="step-content">
+        <div class="step-title">Launch &amp; Monitor the Review</div>
+        <div class="step-body">Set the cycle status to <strong>In Progress</strong>. Monitor via <strong>Compensation Review Dashboard</strong> — track completion rates by org, budget utilisation, and guideline exceptions. Send reminder notifications to managers with incomplete submissions before the cycle close date. Close the cycle, review and approve the proposals, then activate the effective-dated compensation changes.</div>
+        <div class="callout note"><div class="callout-label">📋 Note</div><div class="callout-body">Compensation changes from the review cycle are staged as proposals until the cycle is closed and approved. They do not flow to payroll until the cycle is approved and the effective date is reached. Confirm your payroll cutoff dates with Payroll before setting the cycle effective date.</div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- S8 -->
+  <div class="section" id="s8">
+    <div class="section-header"><div class="section-num">08</div><div><div class="section-title">Validation &amp; Testing</div><div class="section-desc">Acceptance criteria before production activation</div></div></div>
+    <table class="data-table">
+      <thead><tr><th>Test Scenario</th><th>Expected Outcome</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>Grade assignment on Hire — correct grade defaults for job profile</td><td>Correct grade and range populate automatically on Hire transaction</td><td><span class="badge crit">Critical</span></td></tr>
+        <tr><td>Compa-ratio calculation — worker at midpoint</td><td>Compa-ratio displays as 1.00; range penetration 50%</td><td><span class="badge crit">Critical</span></td></tr>
+        <tr><td>Eligibility rule — eligible worker</td><td>Plan visible and assignable during Hire or Change Compensation</td><td><span class="badge crit">Critical</span></td></tr>
+        <tr><td>Eligibility rule — ineligible worker</td><td>Plan not offered; no override possible</td><td><span class="badge crit">Critical</span></td></tr>
+        <tr><td>Grade range update — compa-ratio recalculation</td><td>All workers on grade show updated compa-ratio immediately</td><td><span class="badge high">High</span></td></tr>
+        <tr><td>Merit guideline matrix — performance / compa-ratio intersection</td><td>Correct guideline % displays for each cell in manager view</td><td><span class="badge high">High</span></td></tr>
+        <tr><td>Budget pool — manager budget allocation</td><td>Manager sees correct budget amount; alert fires at threshold</td><td><span class="badge high">High</span></td></tr>
+        <tr><td>Review cycle eligibility exclusion</td><td>Excluded workers do not appear in manager's review worksheet</td><td><span class="badge high">High</span></td></tr>
+        <tr><td>Multi-currency grade — worker in non-base currency country</td><td>Worker's salary displayed and compared in local currency grade</td><td><span class="badge med">Medium</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S9 -->
+  <div class="section" id="s9">
+    <div class="section-header"><div class="section-num">09</div><div><div class="section-title">Rollback &amp; Risk Notes</div><div class="section-desc">Reversing compensation changes and managing critical risks</div></div></div>
+    <div class="callout crit"><div class="callout-label">🔴 Critical</div><div class="callout-body">Compensation changes that have been paid out through payroll <strong>cannot be rolled back in Workday</strong>. The only remediation is a payroll correction in the next pay cycle. This makes pre-production testing and Finance/Payroll sign-off non-negotiable for any configuration change with payroll impact.</div></div>
+    <div class="subsection"><div class="subsection-title">Risk Scenarios</div></div>
+    <table class="data-table">
+      <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Grade range updated — incorrect compa-ratios displayed to managers during review</td><td><span class="badge crit">Critical</span></td><td>Freeze grade range changes during active review cycles; sequence: close cycle → update ranges → open next cycle</td></tr>
+        <tr><td>Eligibility rule too broad — ineligible workers assigned executive plan</td><td><span class="badge crit">Critical</span></td><td>Total Rewards sign-off on all eligibility rules; test with ineligible personas before attaching to plan</td></tr>
+        <tr><td>Bonus plan proration error — incorrect payouts for mid-year hires</td><td><span class="badge high">High</span></td><td>Payroll validation of proration logic in sandbox with representative test cases before production activation</td></tr>
+        <tr><td>Pay equity exposure from grade structure design</td><td><span class="badge high">High</span></td><td>Legal and Total Rewards review of grade structure before launch; run pay equity analysis post-assignment</td></tr>
+        <tr><td>Review cycle effective date conflicts with payroll cutoff</td><td><span class="badge high">High</span></td><td>Confirm payroll calendar before setting review effective dates; include Payroll lead in cycle planning</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S10 -->
+  <div class="section" id="s10">
+    <div class="section-header"><div class="section-num">10</div><div><div class="section-title">Operator Notes</div><div class="section-desc">Organisation-specific compensation design decisions</div></div></div>
+    <div class="notes-area">
+      <p style="color:var(--text-dim);font-size:13px;font-style:italic;margin-bottom:16px;">Complete for each compensation grade, plan, or review cycle build.</p>
+      <div class="nrow">
+        <div><div class="nf-label">Grade / Plan / Cycle Name</div><input class="nfield" type="text" placeholder="e.g. G05-Senior-Manager-USD"/></div>
+        <div><div class="nf-label">Scope (Region / Currency)</div><input class="nfield" type="text" placeholder="e.g. North America / USD Annual"/></div>
+      </div>
+      <div class="nrow">
+        <div><div class="nf-label">Total Rewards Lead</div><input class="nfield" type="text" placeholder="Name / role"/></div>
+        <div><div class="nf-label">Config Date / Effective Date</div><input class="nfield" type="text" placeholder="DD/MM/YYYY"/></div>
+      </div>
+      <div style="margin-bottom:16px;"><div class="nf-label">Grade Range Details (Min / Mid / Max per grade)</div><textarea class="ntarea" placeholder="G01: $45,000 / $60,000 / $75,000&#10;G02: $55,000 / $72,500 / $90,000&#10;G03: $70,000 / $92,500 / $115,000&#10;..."></textarea></div>
+      <div style="margin-bottom:16px;"><div class="nf-label">Plans Configured &amp; Eligibility Rules</div><textarea class="ntarea" placeholder="SAL-Annual-USD: Elig — All FTE, North America&#10;BONUS-Annual-Director: Elig — Director+ Management Level&#10;ALLOW-Car-Executive: Elig — VP+ or Car Policy Eligible"></textarea></div>
+      <div><div class="nf-label">Design Decisions, Pay Equity Notes &amp; Exceptions</div><textarea class="ntarea" placeholder="Document C&B design rationale, Works Council / legal requirements, pay equity review outcomes, Finance sign-off details..."></textarea></div>
+    </div>
+  </div>
+
+  <!-- S11 -->
+  <div class="section" id="s11">
+    <div class="section-header"><div class="section-num">11</div><div><div class="section-title">Change Log</div><div class="section-desc">Audit trail for all compensation configuration changes</div></div></div>
+    <table class="data-table">
+      <thead><tr><th>Version</th><th>Date</th><th>Changed By</th><th>Change Description</th><th>Payroll Impact</th><th>Approved By</th></tr></thead>
+      <tbody>
+        <tr><td>1.0</td><td>[Date]</td><td>[Name]</td><td>Initial grade and plan configuration</td><td>None (new setup)</td><td>[Approver]</td></tr>
+        <tr><td>—</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>—</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>—</td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="callout note" style="margin-top:24px;"><div class="callout-label">📋 Note</div><div class="callout-body">The <strong>Payroll Impact</strong> column is unique to this volume — it must be completed for every change. Values: <em>None</em>, <em>Future cycle only</em>, <em>Retro correction required</em>, or <em>Immediate</em>. This column drives the sign-off tier required before activating any change.</div></div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">KAIZEN OS</div>
+    <div class="footer-note">Workday SOP Series Vol. 04 — Compensation Grades &amp; Plans · v1.0 · © 2026 Kaizen OS. All rights reserved.</div>
+  </div>
+
+</div>
+<script>function toggleCheck(el){el.classList.toggle('checked')}</script>
+</body>
+</html>
